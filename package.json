@@ -11,14 +11,11 @@
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx "
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "lint-staged": {
-    "*.less": "stylelint --syntax less",
-    "*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
-    "*.{js,jsx,tsx,ts,less,md,json}": [
-      "prettier --write"
+    "src/**/*.js": [
+      "eslint --fix --ext .js",
+      "prettier --write",
+      "git add"
     ]
   },
   "dependencies": {
